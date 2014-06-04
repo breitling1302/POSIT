@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:key="@string/todoprefs"
+		android:title="@string/todoprefs">
+		
+ 		<CheckBoxPreference android:title="Allow Reminder" 
+			android:defaultValue="true" 
+			android:summary="Allows users to attach reminders to Finds"
+			android:key="allowReminderKey" 
+			service_class="org.hfoss.posit.android.functionplugin.reminder.ToDoReminderService"
+			android:dependency="@string/geotaggingKey"/>
+	
+	</PreferenceCategory>
+
+</PreferenceScreen>

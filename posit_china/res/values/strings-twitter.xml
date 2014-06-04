@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="twitterprefs">Twitter Preferences</string>    
+    <string name="twitterlogin">Login to Twitter</string>
+    <string name="twitterloginsummary">Login to Twitter from Twitter\'s own website!</string>
+    <string name="prefaccesstoken">PREF_ACCESS_TOKEN</string>
+    <string name="prefaccesstokensecret">PREF_ACCESS_TOKEN_SECRET</string>
+</resources>

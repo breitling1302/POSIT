@@ -1,0 +1,6 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item 
+		android:icon="@drawable/content_save"
+		android:title="Save Finds" 
+		android:id="@+id/save_finds_menu_item" />
+</menu>

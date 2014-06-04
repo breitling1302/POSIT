@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="shprefs">Second Helping Preference</string>
+    <string name="shAboutDescription">Éliminer la faim, l\'autonomisation des personnes, sauvant la nourriture.</string> 
+    
+    <string name="addStop">Nouveau Arrêt</string>
+    <string name="listStops">Liste s\'arrête</string>
+    
+    <!--  Layout Strings -->
+    <string name="stopLabel">Organisation</string>
+    <string name="noteLabel">Remarque</string>
+    
+    <string name="stopType">Type d\'arrêt</string>
+    <string name="Pickup">Ramasser</string>
+    <string name="Dropoff">Déposer</string>
+    
+</resources>

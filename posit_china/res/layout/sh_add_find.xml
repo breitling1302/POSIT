@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"	android:layout_height="match_parent"
+	android:orientation="vertical" android:layout_marginRight="4dp">
+	
+    <TableLayout android:stretchColumns="1"
+    	android:layout_width="match_parent" android:layout_height="wrap_content">
+    	
+        <TableRow android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:id="@+id/nameTextView" android:text="@string/stopLabel"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="4dp">
+            </TextView>
+            <EditText
+            	android:layout_width="0dp" android:layout_height="wrap_content"
+            	android:id="@+id/nameEditText" android:layout_marginLeft="4dp" 
+            	android:layout_marginTop="4dp" android:inputType="textCapSentences"> <requestFocus/>
+            </EditText>
+        </TableRow>
+        
+        <TableRow android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView
+            	android:id="@+id/descriptionTextView" android:text="@string/noteLabel"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="3dp">
+            </TextView>
+            <EditText
+            	android:id="@+id/descriptionEditText" android:inputType="textMultiLine|textCapSentences"
+            	android:layout_width="0dp" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="3dp"
+            	android:maxLines='10'>
+            	</EditText>
+        </TableRow>
+        <TableRow>
+			<TextView android:text="@string/stopType" android:textColor="#ffffff"
+				android:layout_width="fill_parent" 
+				android:layout_marginLeft="10px" 
+				android:layout_height="wrap_content" />
+				
+			<RadioGroup android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:orientation="horizontal"
+				android:id="@+id/stopTypeRadio">
+				<RadioButton android:checked="false" 
+					android:layout_marginLeft="20px" 
+					android:id="@+id/pickupRadio"
+					android:text="@string/Pickup" />
+				<RadioButton android:checked="false" 
+					android:id="@+id/dropoffRadio"
+					android:text="@string/Dropoff" />
+			</RadioGroup>
+        </TableRow>      
+        
+        <TableRow android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView
+            	android:id="@+id/guidTextView" android:text="@string/idLabel"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="3dp"
+            	android:textSize="12dp">
+            </TextView>
+            <TextView
+            	android:id="@+id/guidValueTextView"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="3dp"
+            	android:textSize="12dp">
+            	</TextView>
+            <TextView
+            	android:id="@+id/guidRealValueTextView" android:visibility="gone"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="3dp"
+            	android:textSize="12dp">
+            </TextView>
+        </TableRow>
+        
+        <TableRow android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView
+            	android:id="@+id/timeTextView" android:text="@string/timeLabel"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_marginLeft="4dp" android:layout_marginTop="3dp"
+				android:textSize="12dp">
+            </TextView>
+            <TextView
+            	android:id="@+id/timeValueTextView"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="3dp"
+            	android:textSize="12dp">
+            </TextView>
+        </TableRow>
+        
+        <TableRow android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView
+            	android:id="@+id/latitudeTextView" android:text="@string/latitude"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="3dp"
+            	android:textSize="12dp">
+            </TextView>
+            <TextView
+            	android:id="@+id/latitudeValueTextView" android:text="@string/getting_latitude"
+            	android:layout_width="wrap_content"  android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="3dp"
+            	android:textSize="12dp">
+            </TextView>
+        </TableRow>
+        
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView
+            	android:id="@+id/longitudeTextView" android:text="@string/longitude"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="3dp"
+            	android:textSize="12dp">
+            </TextView>
+            <TextView
+            	android:id="@+id/longitudeValueTextView" android:text="@string/getting_longitude"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="3dp"
+            	android:textSize="12dp">
+            </TextView>
+        </TableRow>
+        
+    </TableLayout>
+    
+	<ImageView 
+	    android:id="@+id/photo"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+    />
+    
+    <TableRow android:layout_height="wrap_content" android:layout_width="match_parent">
+        <Button
+        	android:id="@+id/saveButton" android:drawableLeft="@drawable/content_save"
+        	android:layout_width="wrap_content" android:layout_height="wrap_content" 
+        	android:layout_marginLeft="115dp" android:layout_marginRight="115dp"
+        	android:text="@string/save" android:layout_marginTop="10dp">
+        </Button>
+    </TableRow>
+    
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:key="@string/shprefs"
+		android:title="@string/shprefs">
+
+		<PreferenceScreen android:title="@string/shprefs">
+		
+			<Preference android:key="shAboutKey" 
+				android:title="@string/aboutItem"
+				activity_class="org.hfoss.posit.android.plugin.sh.ShAboutActivity"
+				android:summary="" />
+	
+		</PreferenceScreen>
+	</PreferenceCategory>
+
+</PreferenceScreen>

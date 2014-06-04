@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/plugin_status_row"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+	    
+    <CheckBox android:text=""
+       android:id="@+id/plugin_status_enabled"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentLeft="true"
+       android:checked="false"
+       >
+           
+    </CheckBox>
+
+	<TextView android:text=""
+       android:id="@+id/plugin_status_name"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_toRightOf="@+id/plugin_status_enabled"
+       >
+	    
+	</TextView>
+
+	<ImageButton
+	    android:id="@+id/plugin_status_description"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentRight="true"
+	    android:layout_centerVertical="true"
+	    android:background="@null"
+	    android:src="@drawable/question_mark" />
+	
+</RelativeLayout>

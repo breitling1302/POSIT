@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:key="@string/smsprefs"
+		android:title="@string/smsprefs">
+		
+		<EditTextPreference android:title="@string/defaultPhoneNumLabel"
+				android:key="@string/defaultPhoneNumKey" 
+				android:summary="@string/defaultPhoneNum"
+				android:inputType="phone"
+				android:defaultValue="@string/defaultPhoneNum" />
+	
+	</PreferenceCategory>
+
+</PreferenceScreen>

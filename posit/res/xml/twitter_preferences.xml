@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:key="@string/twitterprefs"
+		android:title="@string/twitterprefs">
+		
+		<Preference android:title="@string/twitterlogin"
+			android:defaultValue="true" android:summary="@string/twitterloginsummary"
+			android:key="@string/twitterlogin" 
+			activity_class="org.hfoss.posit.android.functionplugin.twitter.LoginTwitterActivity" />
+
+	</PreferenceCategory>
+
+</PreferenceScreen>

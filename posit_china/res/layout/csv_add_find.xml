@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:id="@+id/csvAddLinearLayout" 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"	android:layout_height="match_parent"
+	android:orientation="vertical" android:layout_marginRight="4dp">
+	
+    <TableLayout android:stretchColumns="1"
+    	android:layout_width="match_parent" android:layout_height="wrap_content">
+    	
+        <TableRow android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:id="@+id/nameTextView" android:text="@string/nameLabel"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="4dp" 
+            	android:visibility="gone" >
+            </TextView>
+            <TextView
+            	android:layout_width="0dp" android:layout_height="wrap_content"
+            	android:id="@+id/nameValueText" android:layout_marginLeft="4dp" 
+            	android:textSize="24dp" 
+            	android:layout_marginTop="4dp"> <requestFocus/>
+            </TextView>
+        </TableRow>
+        
+        <TableRow android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView
+            	android:id="@+id/descriptionTextView" android:text="Address:"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="10dp" 
+            	android:textSize="16dp" 
+            	android:visibility="visible">
+            </TextView>
+            <TextView
+            	android:id="@+id/descriptionValueText"
+            	android:autoLink="map"
+            	android:layout_width="0dp" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="10dp"
+            	android:textSize="16dp" 
+            	android:maxLines='10'>
+            </TextView>
+        </TableRow>   
+        
+        <TableRow android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView
+            	android:id="@+id/guidTextView" android:text="@string/idLabel"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="10dp"
+            	android:textSize="12dp" 
+            	android:visibility="gone">
+            </TextView>
+            <TextView
+            	android:id="@+id/guidValueTextView"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="10dp"
+            	android:textSize="12dp"
+            	android:visibility="gone" >
+            </TextView>
+            <TextView
+            	android:id="@+id/guidRealValueTextView"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="10dp"
+            	android:textSize="12dp"
+            	android:visibility="gone" >
+            </TextView>
+        </TableRow>
+      
+        
+        <TableRow android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView
+            	android:id="@+id/latitudeTextView" android:text="@string/latitude"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="10dp"
+            	android:textSize="12dp" 
+            	android:visibility="gone">           
+            	</TextView>
+            <TextView
+            	android:id="@+id/latitudeValueTextView" android:text="@string/getting_latitude"
+            	android:layout_width="wrap_content"  android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="10dp"
+            	android:textSize="12dp" 
+            	android:visibility="gone" >           
+            </TextView>
+        </TableRow>
+        
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView
+            	android:id="@+id/longitudeTextView" android:text="@string/longitude"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="10dp"
+            	android:textSize="12dp" 
+            	android:visibility="gone">
+            </TextView>
+            <TextView
+            	android:id="@+id/longitudeValueTextView" android:text="@string/getting_longitude"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="10dp"
+            	android:textSize="12dp" 
+            	android:visibility="gone">
+            </TextView>
+        </TableRow>
+  
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView
+            	android:id="@+id/urlTextView" android:text="Web: "
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="10dp"
+            	android:textSize="16dp">
+            </TextView>
+            <TextView
+            	android:id="@+id/urlValueTextView" android:text="http://www.google.com"
+            	android:autoLink="web"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="10dp"
+            	android:textSize="16dp">
+            </TextView>
+        </TableRow>
+  
+          <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView
+            	android:id="@+id/phoneTextView" android:text="Phone: "
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="10dp"
+            	android:textSize="16dp">
+            </TextView>
+            <TextView
+            	android:id="@+id/phoneValueTextView" android:text="111-222-3333"
+            	android:autoLink="phone"
+            	android:layout_width="wrap_content" android:layout_height="wrap_content"
+            	android:layout_marginLeft="4dp" android:layout_marginTop="10dp"
+            	android:layout_marginBottom="10dp"
+            	android:textSize="16dp">
+            </TextView>
+        </TableRow>
+  
+        
+    </TableLayout>
+    
+	<ImageView 
+	    android:id="@+id/photo"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+    />
+
+    
+</LinearLayout>

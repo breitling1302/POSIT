@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="outsideinprefs">OutsideIn Preferences</string>
+    <string name="outsideInAboutDescription">We help homeless youth and other marginalized people move towards improved health and self-sufficiency.</string> 
+
+	<!--  Add Find prompts, etc. -->
+    <string name="unique_id">ID:</string>
+	<string name="unique_id_help">Unique ID: First 2 letters of first name/First 2 letters of mom\'s name/Month of birth/Year of birth</string>
+    <string name="syringes_out">Syringes out:</string>
+    <string name="syringes_in">Syringes in: </string>
+    <string name="is_new">Check here if new client.</string>
+</resources>

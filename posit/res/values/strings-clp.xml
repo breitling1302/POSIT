@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clpprefs">CLP Preferences</string>
+    <string name="clpAboutDescription">A CLP crowd sourcing app.</string> 
+    
+    <string name="addReport">Add Report</string>
+    <string name="listReports">List Reports</string>
+    
+    <string name="namePrompt">Address</string>
+</resources>

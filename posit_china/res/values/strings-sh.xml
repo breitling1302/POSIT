@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="shprefs">Second Helping Preferences</string>
+    <string name="shAboutDescription">Eliminating hunger, empowering people, rescuing food.</string> 
+    
+    <string name="addStop">Add Stop</string>
+    <string name="listStops">List Stops</string>
+    
+    <!--  Layout Strings -->
+    <string name="stopLabel">Organization</string>
+    <string name="noteLabel">Note</string>
+    
+    <string name="stopType">Stop Type</string>
+    <string name="Pickup">Pickup</string>
+    <string name="Dropoff">Dropoff</string>
+    
+</resources>

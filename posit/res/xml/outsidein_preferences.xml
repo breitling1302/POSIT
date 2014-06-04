@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:key="@string/outsideinprefs"
+		android:title="@string/outsideinprefs">
+
+		<PreferenceScreen android:title="@string/outsideinprefs">
+		
+			<Preference android:key="oiAboutKey" 
+				android:title="@string/aboutItem"
+				activity_class="org.hfoss.posit.android.plugin.outsidein.OutsideInAboutActivity"
+				android:summary="" />
+	
+		</PreferenceScreen>
+	</PreferenceCategory>
+
+</PreferenceScreen>
