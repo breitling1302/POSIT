@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	android:versionCode="1" android:versionName="@string/version"
+	package="org.hfoss.posit.android">
+	<uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19" />
+	<supports-screens android:resizeable="true"
+		android:smallScreens="true"
+        android:normalScreens="true"
+		android:largeScreens="true"
+		android:xlargeScreens="true" />
+	<!-- <uses-permission android:name="android.permission.CAMERA"></uses-permission> -->
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission> 
+	<!-- <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission> -->
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+	<!-- <uses-permission android:name="android.permission.VIBRATE"/> -->
+	<uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE">Getting the IMEI code for
+		identification</uses-permission>
+	<uses-permission android:name="android.permission.READ_SMS" />
+	<uses-permission android:name="android.permission.WRITE_SMS" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
+	<uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	<uses-permission android:name="android.permission.USE_CREDENTIALS" />
+	<uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+	<uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+	<uses-permission android:name="android.permission.READ_SYNC_STATS" />
+	<uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+	<uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+
+
+	<!-- Careful with these. They let the app delete conversation threads. -->
+
+	<application android:icon="@drawable/icon" android:label="@string/app_name"
+		android:theme="@android:style/Theme.Black">
+		<uses-library android:name="com.google.android.maps" />
+
+		<activity android:name=".PositMain" android:configChanges="orientation|keyboardHidden"
+			android:label="@string/app_name"
+			android:launchMode="singleTop"
+            android:theme="@style/Theme.Sherlock" >
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+				<!-- CAUTION: The following allow the app to override the HOME button. 
+					<category android:name="android.intent.category.HOME" /> <category android:name="android.intent.category.DEFAULT" 
+					/> -->
+			</intent-filter>
+		</activity>
+		<activity android:name=".AboutActivity"
+            android:theme="@style/Theme.Sherlock" />
+
+		<provider android:name=".api.database.FindContentProvider"
+			android:authorities="org.hfoss.posit" android:enabled="true">
+		</provider>
+
+
+		<!-- Activities for basic POSIT plugin -->
+		<activity
+			android:name="org.hfoss.posit.android.api.activity.ListFindsActivity"
+			android:configChanges="orientation|keyboardHidden"
+			android:launchMode="singleTop"
+            android:theme="@style/Theme.Sherlock" />
+		<activity
+			android:name="org.hfoss.posit.android.api.activity.FindActivity"
+			android:launchMode="singleTop"
+			android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock" />
+		<activity
+			android:name="org.hfoss.posit.android.api.activity.MapFindsActivity"
+			android:launchMode="singleTop"
+			android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Theme.Sherlock" />
+		<activity
+			android:name="org.hfoss.posit.android.api.activity.ListProjectsActivity"
+			android:launchMode="singleTop" android:screenOrientation="portrait"
+			android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Theme.Sherlock" />
+
+		<activity
+			android:name="org.hfoss.posit.android.api.activity.NewProjectActivity" 
+			android:launchMode="singleTop" android:screenOrientation="portrait"
+			android:configChanges="orientation|keyboardHidden"
+			android:theme="@style/Theme.Sherlock" />
+
+			
+		<!--  Activities for Function Plugins -->	
+		<activity
+			android:name="org.hfoss.posit.android.functionplugin.tracker.TrackerActivity"
+            android:theme="@style/Theme.Sherlock" />			
+		<activity
+			android:name="org.hfoss.posit.android.functionplugin.tracker.TrackerListActivity"
+			android:theme="@style/Theme.Sherlock" />
+		<activity
+			android:name="org.hfoss.posit.android.functionplugin.tracker.TrackerSettings"
+			android:theme="@style/Theme.Sherlock" />
+		<service android:name="org.hfoss.posit.android.functionplugin.tracker.TrackerBackgroundService"/>
+
+
+		<activity
+			android:name="org.hfoss.posit.android.functionplugin.sms.SmsActivity" />	
+		<activity
+			android:name="org.hfoss.posit.android.functionplugin.sms.SmsViewActivity" />
+		<receiver android:name=".functionplugin.sms.SmsReceiver"> 
+ 			<intent-filter> 
+ 				<action android:name="android.provider.Telephony.SMS_RECEIVED" /> 
+ 			</intent-filter> 
+ 		</receiver> 
+
+ 		<!--  Miscellaneous Function Plugins -->
+		<activity
+			android:name=".functionplugin.log.LogFindsActivity" />
+		<activity
+			android:name=".functionplugin.login.LoginActivity" />
+		<activity
+			android:name=".functionplugin.fileviewer.FilePickerActivity" />
+		<activity
+			android:name=".functionplugin.fileviewer.FileViewActivity" />
+		<activity
+			android:name=".functionplugin.twitter.TwitFindsActivity" />	
+		<activity 
+			android:name=".functionplugin.twitter.LoginTwitterActivity"
+			android:launchMode="singleInstance" >
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:scheme="twitFinds" />
+			</intent-filter>	
+		</activity>
+
+		<!-- Activities for Find Plugin CsvFind plugin -->
+		<activity
+			android:name="org.hfoss.posit.android.plugin.csv.CsvFindActivity"
+			android:launchMode="singleTop"
+			android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock" />
+		<activity
+			android:name="org.hfoss.posit.android.plugin.csv.CsvListFindsActivity"
+			android:launchMode="singleTop"
+			android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Theme.Sherlock" />
+
+		<!-- Activities for Outside In plugin -->
+		<activity
+			android:name="org.hfoss.posit.android.plugin.outsidein.OutsideInFindActivity"
+			android:launchMode="singleTop"
+			android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock" />
+		<activity
+			android:name="org.hfoss.posit.android.plugin.outsidein.OutsideInListFindsActivity"
+			android:launchMode="singleTop"
+			android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Theme.Sherlock" />
+
+		<activity
+			android:name="org.hfoss.posit.android.plugin.outsidein.OutsideInAboutActivity"
+			android:launchMode="singleTop"
+			android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Theme.Sherlock" />
+
+		<!-- Activities for CLP plugin -->
+		<activity
+			android:name="org.hfoss.posit.android.plugin.clp.ClpFindActivity"
+			android:launchMode="singleTop"
+			android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock" />
+		<activity
+			android:name="org.hfoss.posit.android.plugin.clp.ClpListFindsActivity"
+			android:launchMode="singleTop"
+			android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Theme.Sherlock" />
+
+		<activity
+			android:name="org.hfoss.posit.android.plugin.clp.ClpAboutActivity"
+			android:launchMode="singleTop"
+			android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Theme.Sherlock" />
+
+		<!-- Activities for SecondHelpings plugin -->
+		<activity
+			android:name="org.hfoss.posit.android.plugin.sh.ShFindActivity"
+			android:launchMode="singleTop"
+			android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock" />
+		<activity
+			android:name="org.hfoss.posit.android.plugin.sh.ShListFindsActivity"
+			android:launchMode="singleTop"
+			android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Theme.Sherlock" />
+
+		<activity
+			android:name="org.hfoss.posit.android.plugin.sh.ShAboutActivity"
+			android:launchMode="singleTop"
+			android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Theme.Sherlock" />
+
+
+		<activity
+			android:name="org.hfoss.posit.android.api.activity.SettingsActivity"
+			android:configChanges="orientation|keyboardHidden"
+			android:screenOrientation="portrait" android:launchMode="singleTop"
+			android:theme="@style/Theme.Sherlock" />
+        
+		<activity android:name=".api.authentication.AuthenticatorActivity"
+			android:screenOrientation="portrait" android:launchMode="singleTop" />
+
+		<activity android:name="org.hfoss.posit.android.sync.SyncActivity"
+			android:launchMode="singleTop" />
+			
+		<service android:name="org.hfoss.posit.android.api.service.SmsService"></service>
+
+		<service android:name="org.hfoss.posit.android.sync.SyncService"
+			android:exported="true">
+			<intent-filter>
+				<action android:name="android.content.SyncAdapter" />
+			</intent-filter>
+
+			<meta-data android:name="android.content.SyncAdapter"
+				android:resource="@xml/sync_adapter" />
+		</service>
+
+		<service android:name=".api.authentication.AuthenticationService"
+			android:exported="true" android:process=":auth">
+			<intent-filter>
+				<action android:name="android.accounts.AccountAuthenticator" />
+			</intent-filter>
+			<meta-data android:name="android.accounts.AccountAuthenticator"
+				android:resource="@xml/authenticator" />
+		</service>
+		
+		<activity android:name=".functionplugin.reminder.SetReminder" android:theme="@android:style/Theme.Translucent"></activity>
+		<service android:name=".functionplugin.reminder.ToDoReminderService"></service>
+		<activity android:name=".functionplugin.reminder.NotifyReminder" android:theme="@android:style/Theme.Translucent"></activity>
+		<activity android:name=".functionplugin.camera.CameraActivity" android:screenOrientation="portrait"></activity>
+		<activity android:name=".api.plugin.FuncPluginManagerActivity"></activity>
+
+	</application>
+</manifest>
