@@ -10,5 +10,6 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="lib" path="/Users/yishengcai/Documents/workspace/POSIT/posit_china/libs/baidumapapi_v2_4_2.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
