@@ -1,0 +1,34 @@
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory 
+		android:title="@string/general">
+
+	<Preference android:key="regDevice" android:title="@string/prefDevice"
+		android:summary="@string/registerDeviceTitle" />
+
+	<Preference 
+		android:key="regUser"
+		android:title="@string/prefUser"
+		android:summary="@string/registerUserTitle" />
+		
+	<EditTextPreference
+   	 	android:title="@string/serverPrefLabel"
+    	android:key="SERVER_ADDRESS"/>
+    	
+    <Preference 
+    	android:key="PROJECT_NAME" android:title="@string/currProjectLabel"/>
+
+	<Preference 
+		android:key="EMAIL" android:title="@string/currUserLabel"/>
+		   
+	</PreferenceCategory>
+<!-- 		
+	<EditTextPreference
+		android:key="ADHOC_GROUPSIZE"
+		android:title="@string/adhoc_groupsize"
+		android:summary="@string/adhoc_groupsize_summary"
+		android:dialogTitle="@string/adhoc_groupsize_title"
+		android:defaultValue="3"/>
+	-->	
+ 
+</PreferenceScreen>

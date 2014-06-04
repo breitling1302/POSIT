@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+  
+  		<TextView android:id="@+id/trackerExpeditionLabel"
+			android:text="Exepedition # " 
+			android:textSize="21dp" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+					
+  		<TextView android:id="@+id/expedition_id" 
+  			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			android:singleLine="true"
+			android:textSize="21dp" 
+			android:layout_marginLeft="3dp"
+			android:layout_alignParentTop="true" />
+			
+		<TextView android:id="@+id/projectLabel"
+			android:text="Project # "
+			android:layout_width="wrap_content"
+			android:layout_marginLeft="20dp"			
+			android:textSize="21dp" 
+			android:layout_height="wrap_content" />
+
+		<TextView android:id="@+id/project_id" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:textSize="21dp"
+			android:layout_marginLeft="3dp"
+			android:layout_alignTop="@id/expedition_id"
+			android:layout_alignParentRight="true" />
+ 
+</LinearLayout>

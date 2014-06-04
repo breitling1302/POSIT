@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen 
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<PreferenceCategory 
+		android:title="@string/general">
+<!--   
+	<EditTextPreference
+		android:key="@string/swath_width"
+		android:title="@string/trackerSwathLabel"
+		android:defaultValue = "50"
+		android:persistent = "true"
+		android:summary="@string/tracker_settings_swath_summary"
+		android:dialogMessage="@string/tracker_settings_swath_summary"
+		android:dialogTitle="@string/trackerStatusLabel" />
+-->	
+	<ListPreference
+		android:key="@string/swath_width"
+		android:title="@string/trackerSwathLabel"
+		android:persistent = "true"
+		android:defaultValue = "50"
+		android:summary= "@string/tracker_settings_swath_summary"
+		android:entries="@array/swath_entries"
+		android:entryValues="@array/swath_values"  />
+		
+	<ListPreference
+		android:key="@string/min_recording_distance"
+		android:title="@string/tracker_settings_min_distance"
+		android:persistent = "true"
+		android:defaultValue = "3"
+		android:summary= "@string/tracker_min_dist_summary"
+		android:entries="@array/min_dist_entries"
+		android:entryValues="@array/min_dist_values"  />
+	</PreferenceCategory>
+	
+</PreferenceScreen>
