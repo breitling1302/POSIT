@@ -278,6 +278,14 @@ public class TrackerActivity extends OrmLiteBaseMapActivity<DbManager>
 		
 		// Set up the UI -- first the text views
 		setContentView(R.layout.tracker);
+		
+		mapView=(MapView)findViewById(R.id.mapView);
+		mapView.setBuiltInZoomControls(true);  
+		//设置启用内置的缩放控件  
+		MapController mMapController=mapView.getController();  
+		// 得到mMapView的控制权,可以用它控制和驱动平移和缩放  
+		mMapController.setZoom(18);//设置地图zoom级别  
+		
 		mPointsTextView = (TextView)findViewById(R.id.trackerPoints);
 		mLocationTextView = (TextView)findViewById(R.id.trackerLocation);
 		mStatusTextView = (TextView)findViewById(R.id.trackerStatus);

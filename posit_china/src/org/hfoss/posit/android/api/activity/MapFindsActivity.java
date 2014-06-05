@@ -121,6 +121,14 @@ public class MapFindsActivity extends OrmLiteBaseMapActivity<DbManager>  {
 		}
 		mMapView.setBuiltInZoomControls(true);
 		
+		mapController=mMapView.getController();  
+		// 得到mMapView的控制权,可以用它控制和驱动平移和缩放  
+		GeoPoint point =new GeoPoint((int)(39.915* 1E6),(int)(116.404* 1E6));  
+		//用给定的经纬度构造一个GeoPoint，单位是微度 (度 * 1E6)  
+		mapController.setCenter(point);//设置地图中心点  
+		mapController.setZoom(18);//设置地图zoom级别  
+
+		
 		// Create a mylocation overlay, add it and refresh it
 	    myLocationOverlay = new MyLocationOverlay(mMapView);
 	    mMapView.getOverlays().add(myLocationOverlay);
