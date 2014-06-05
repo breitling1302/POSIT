@@ -25,12 +25,11 @@ package org.hfoss.posit.android.api.activity;
 
 import java.util.List;
 
+import org.hfoss.posit.android.R;
 import org.hfoss.posit.android.api.Find;
 import org.hfoss.posit.android.api.database.DbManager;
 import org.hfoss.posit.android.api.fragment.ListFindsFragment;
-import org.hfoss.posit.android.plugin.csv.CsvListFindsActivity;
 import org.hfoss.posit.android.plugin.csv.CsvListFindsFragment;
-import org.hfoss.posit.android.R;
 
 import android.content.Context;
 import android.content.Intent;
@@ -41,21 +40,22 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 import com.actionbarsherlock.ActionBarSherlock;
-import com.google.android.maps.GeoPoint;
-import com.google.android.maps.MapController;
-import com.google.android.maps.MapView;
-import com.google.android.maps.MyLocationOverlay;
-import com.google.android.maps.Overlay;
-import com.google.android.maps.OverlayItem;
+import com.baidu.mapapi.BMapManager;
+import com.baidu.mapapi.map.MapController;
+import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.MyLocationOverlay;
+import com.baidu.mapapi.map.Overlay;
+import com.baidu.mapapi.map.OverlayItem;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
 
 /**
  *  This class retrieves Finds from the Db or from a Csv List and
@@ -69,7 +69,8 @@ public class MapFindsActivity extends OrmLiteBaseMapActivity<DbManager>  {
 	
 	private static List<? extends Find> finds = null;
 
-	private MapView mMapView;
+	BMapManager mBMapMan = null;  
+	MapView mMapView = null;
 	private MapController mapController;
 	private MyLocationOverlay myLocationOverlay;
 	private List<Overlay> mapOverlays;
@@ -92,6 +93,8 @@ public class MapFindsActivity extends OrmLiteBaseMapActivity<DbManager>  {
 	@Override
 	protected void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
+		mBMapMan=new BMapManager(getApplication());  
+		mBMapMan.init(null);
 		setContentView(R.layout.map_finds);
 		
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
@@ -111,10 +114,15 @@ public class MapFindsActivity extends OrmLiteBaseMapActivity<DbManager>  {
 		}
 		
 		mMapView = (MapView) findViewById(R.id.mapView);
+		if (mMapView == null){
+			Log.i(TAG,"MapView is NULL");
+		}else{
+			Log.i(TAG,"successfully inflated mapView");
+		}
 		mMapView.setBuiltInZoomControls(true);
 		
 		// Create a mylocation overlay, add it and refresh it
-	    myLocationOverlay = new MyLocationOverlay(this, mMapView);
+	    myLocationOverlay = new MyLocationOverlay(mMapView);
 	    mMapView.getOverlays().add(myLocationOverlay);
 	    mMapView.postInvalidate();
 	    		
@@ -138,13 +146,28 @@ public class MapFindsActivity extends OrmLiteBaseMapActivity<DbManager>  {
 	 */
 	@Override
 	protected void onResume() {
+		mMapView.onResume();  
+        if(mBMapMan!=null){  
+                mBMapMan.start();  
+        }  
+
 		super.onResume();
 		
 		// Enable my location
-	    myLocationOverlay.enableMyLocation();
+	    //myLocationOverlay.enableMyLocation();
 		myLocationOverlay.enableCompass();	
 		mapFinds();
 	}
+	
+	@Override  
+	protected void onDestroy(){  
+	        mMapView.destroy();  
+	        if(mBMapMan!=null){  
+	                mBMapMan.destroy();  
+	                mBMapMan=null;  
+	        }  
+	        super.onDestroy();  
+	}  
 		
 	/**
 	 * Called when the system is about to resume some other activity.
@@ -154,8 +177,13 @@ public class MapFindsActivity extends OrmLiteBaseMapActivity<DbManager>  {
 	 */
 	@Override
 	protected void onPause(){
+		mMapView.onPause();  
+        if(mBMapMan!=null){  
+                mBMapMan.stop();  
+        }  
+
 		super.onPause();
-		myLocationOverlay.disableMyLocation();
+		//myLocationOverlay.disableMyLocation();
 	}
 
 	/**
@@ -176,7 +204,7 @@ public class MapFindsActivity extends OrmLiteBaseMapActivity<DbManager>  {
 		}
 
 		mapOverlays = mMapView.getOverlays();
-		mapOverlays.add(mapLayoutItems(finds));	
+		//mapOverlays.add(mapLayoutItems(finds));	
 		mapController = mMapView.getController();
 		
 		centerFinds();
@@ -213,7 +241,7 @@ public class MapFindsActivity extends OrmLiteBaseMapActivity<DbManager>  {
 
 			Log.i(TAG, "(" + latitude + "," + longitude + ") " + description);
 			
-			mPoints.addOverlay(new OverlayItem(new GeoPoint(latitude,longitude),String.valueOf(id),description));
+			//mPoints.addOverlay(new OverlayItem(new GeoPoint(latitude,longitude),String.valueOf(id),description));
 		}
 		return mPoints;
 	}
@@ -267,7 +295,7 @@ public class MapFindsActivity extends OrmLiteBaseMapActivity<DbManager>  {
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		GeoPoint location = null;
 		switch (item.getItemId()) {
-		case R.id.my_location_mapfind_menu_item:
+		/*case R.id.my_location_mapfind_menu_item:
 			if (myLocationOverlay.isMyLocationEnabled()) {
 				myLocationOverlay.disableMyLocation();
 				myLocationOverlay.disableCompass();
@@ -280,7 +308,7 @@ public class MapFindsActivity extends OrmLiteBaseMapActivity<DbManager>  {
 					mapController.setCenter(location);
 				item.setTitle(R.string.my_location_off);
 			}
-			break;
+			break;*/
 		case R.id.search_finds_mapfind_menu_item:
 			searchFinds();
 			break;

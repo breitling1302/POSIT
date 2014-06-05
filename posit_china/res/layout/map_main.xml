@@ -2,11 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/mainlayout" android:orientation="vertical"
 	android:layout_width="fill_parent" android:layout_height="fill_parent">
-	<com.google.android.maps.MapView
-		android:id="@+id/mapView" android:layout_width="fill_parent"
-		android:layout_height="fill_parent" 
-		android:clickable="true"
-		android:apiKey="0bvEMJ9m96_f2aZjGvtIo0gbAxAloau3umkde5g" />
+	<com.baidu.mapapi.map.MapView android:id="@+id/mapView"  
+                    android:layout_width="fill_parent"  
+                    android:layout_height="fill_parent"  
+                    android:clickable="true" />
 	<LinearLayout android:id="@+id/zoomView"
         android:orientation="horizontal"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"

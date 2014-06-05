@@ -940,15 +940,6 @@ public class TrackerActivity extends OrmLiteBaseMapActivity<DbManager>
 		updateViewTrackingMode();
 	}
 
-	/**
-	 * Required for MapActivity
-	 * @see com.google.android.maps.MapActivity#isRouteDisplayed()
-	 */
-	@Override
-	protected boolean isRouteDisplayed() {
-		return false;
-	}
-
 
 	/**
 	 * Helper method to update a point in the Db.  Needs to be synchronized 

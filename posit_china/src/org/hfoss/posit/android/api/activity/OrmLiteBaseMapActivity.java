@@ -22,11 +22,12 @@
 
 package org.hfoss.posit.android.api.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.google.android.maps.MapActivity;
+
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
@@ -37,7 +38,7 @@ import com.j256.ormlite.support.ConnectionSource;
  *
  * @param <H>
  */
-public class OrmLiteBaseMapActivity<H extends OrmLiteSqliteOpenHelper> extends MapActivity {
+public class OrmLiteBaseMapActivity<H extends OrmLiteSqliteOpenHelper> extends Activity {
 	public static String TAG= "OrmLiteBaseMapActivity";
 	
 	private volatile H helper;
@@ -117,10 +118,6 @@ public class OrmLiteBaseMapActivity<H extends OrmLiteSqliteOpenHelper> extends M
 		helper = null;
 	}
 
-	@Override
-	protected boolean isRouteDisplayed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
 
 }
