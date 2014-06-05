@@ -21,17 +21,15 @@
  */
 package org.hfoss.posit.android.functionplugin.tracker;
 
+import org.hfoss.posit.android.R;
 import org.hfoss.posit.android.api.database.DbHelper;
 import org.hfoss.posit.android.api.database.DbManager;
-import org.hfoss.posit.android.R;
 import org.hfoss.posit.android.sync.Communicator;
 
-import android.app.Service;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -41,11 +39,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.maps.GeoPoint;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.j256.ormlite.android.apptools.OrmLiteBaseService;
 
 

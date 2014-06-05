@@ -25,14 +25,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.google.android.maps.GeoPoint;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+
+import com.baidu.platform.comapi.basestruct.GeoPoint;
 
 /**
  * A class to encapsulate Tracker state data

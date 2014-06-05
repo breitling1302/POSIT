@@ -29,9 +29,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
-import com.google.android.maps.MapView;
-import com.google.android.maps.Overlay;
-import com.google.android.maps.Projection;
+
+import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.Overlay;
+import com.baidu.platform.comapi.map.Projection;
+
 
 /**
  * Creates an overlay to display points along an expedition.
@@ -52,7 +54,6 @@ public class TrackerOverlay extends Overlay {
 		mTrackerState = state;
 	}
 
-	@Override
 	public synchronized void draw(Canvas canvas, MapView mapView, boolean shadow) {
 		// mTrackerState should never be null unless Tracker Service doesn't start properly
 		if (mTrackerState == null) 

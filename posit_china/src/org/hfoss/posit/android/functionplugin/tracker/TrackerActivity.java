@@ -24,9 +24,9 @@ package org.hfoss.posit.android.functionplugin.tracker;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hfoss.posit.android.R;
 import org.hfoss.posit.android.api.activity.OrmLiteBaseMapActivity;
 import org.hfoss.posit.android.api.database.DbManager;
-import org.hfoss.posit.android.R;
 import org.hfoss.posit.android.functionplugin.tracker.TrackerState.PointAndTime;
 
 import android.app.Activity;
@@ -52,11 +52,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.maps.GeoPoint;
-import com.google.android.maps.MapController;
-import com.google.android.maps.MapView;
-import com.google.android.maps.MyLocationOverlay;
-import com.google.android.maps.Overlay;
+import com.baidu.mapapi.BMapManager;
+import com.baidu.mapapi.map.MapController;
+import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.MyLocationOverlay;
+import com.baidu.mapapi.map.Overlay;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
+
+
 
 /**
  * This class tracks and maps the phone's location in real time.  The track is displayed
@@ -96,8 +99,9 @@ public class TrackerActivity extends OrmLiteBaseMapActivity<DbManager>
 	private TrackerDbManager mDbManager;
 	//	private Communicator mCommunicator;
 
+	BMapManager mBMapMan = null;  
+	MapView mapView = null; 
 	// View stuff
-	private MapView mapView;
 	private MyLocationOverlay myLocationOverlay;
 	private TrackerOverlay mTrackerOverlay;
 	private List<Overlay> mOverlays;
@@ -168,6 +172,8 @@ public class TrackerActivity extends OrmLiteBaseMapActivity<DbManager>
 		// Get a notification manager
 		mNotificationMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
+		mBMapMan=new BMapManager(getApplication());  
+		mBMapMan.init(null);   
 		setUpTheUI();
 
 		mExecutionState = mPreferences.getInt(TrackerSettings.TRACKER_STATE_PREFERENCE, TrackerSettings.IDLE);
@@ -198,7 +204,7 @@ public class TrackerActivity extends OrmLiteBaseMapActivity<DbManager>
 		mConnectivityMgr = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
 
 		if (myLocationOverlay != null) {
-			myLocationOverlay.enableMyLocation();
+			//myLocationOverlay.enableMyLocation();
 			myLocationOverlay.enableCompass();
 		}
 
@@ -269,6 +275,7 @@ public class TrackerActivity extends OrmLiteBaseMapActivity<DbManager>
 	 * Sets the layout for tracking mode
 	 */
 	private void setUpTheUI() {
+		
 		// Set up the UI -- first the text views
 		setContentView(R.layout.tracker);
 		mPointsTextView = (TextView)findViewById(R.id.trackerPoints);
@@ -297,7 +304,7 @@ public class TrackerActivity extends OrmLiteBaseMapActivity<DbManager>
 		if (mOverlays.contains(myLocationOverlay)) {
 			mOverlays.remove(myLocationOverlay);
 		}
-		myLocationOverlay = new MyLocationOverlay(this, mapView);
+		myLocationOverlay = new MyLocationOverlay(mapView);
 		mOverlays.add(myLocationOverlay);
 
 		LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
@@ -474,7 +481,7 @@ public class TrackerActivity extends OrmLiteBaseMapActivity<DbManager>
 				restoreExpeditionState(); 
 				updateViewTrackingMode();
 				if (state.mLocation != null) {
-					myLocationOverlay.onLocationChanged(state.mLocation);
+					//myLocationOverlay.onLocationChanged(state.mLocation);
 					Log.i(TAG,"TrackerActivity, updatingUI  <" + state.mLocation.getLatitude() + "," + state.mLocation.getLongitude() + ">");
 				} else 
 					Log.w(TAG,"TrackerActivity, updatingUI  unable to get location from TrackerState");
@@ -812,7 +819,7 @@ public class TrackerActivity extends OrmLiteBaseMapActivity<DbManager>
 		mNotificationMgr.cancel(R.string.local_service_label);  // Cancel the notification
 
 		mExecutionState = updateExecutionState(TrackerSettings.IDLE, true);		
-		myLocationOverlay.disableMyLocation();
+		//myLocationOverlay.disableMyLocation();
 
 		Toast.makeText(this, "Tracking is stopped.", Toast.LENGTH_LONG).show();
 		mTrackerButton.setText("Start");
@@ -823,7 +830,7 @@ public class TrackerActivity extends OrmLiteBaseMapActivity<DbManager>
 		@Override
 		public void onPause() {
 			super.onPause();
-			myLocationOverlay.disableMyLocation();
+			//myLocationOverlay.disableMyLocation();
 			myLocationOverlay.disableCompass();
 			spEditor.putInt(TrackerSettings.TRACKER_STATE_PREFERENCE, mExecutionState);
 			spEditor.commit();
