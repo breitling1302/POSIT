@@ -2,11 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/mainlayout" android:orientation="vertical"
 	android:layout_width="fill_parent" android:layout_height="fill_parent">
-	<com.baidu.mapapi.map.MapView
+	<com.google.android.maps.MapView
 		android:id="@+id/mapView" android:layout_width="fill_parent"
 		android:layout_height="fill_parent" 
 		android:clickable="true"
-		/>
+		android:apiKey="0bvEMJ9m96_f2aZjGvtIo0gbAxAloau3umkde5g" />
 	<LinearLayout android:id="@+id/zoomView"
         android:orientation="horizontal"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -21,4 +21,3 @@
 <!-- Release 0bvEMJ9m96_fNUGsMNJA7nKEiyhQIgdq1Htv59w -->
 <!-- Eric's 0Q5WYliD_W0qvhGX6AI7NfHQDFYLAkr_V7c46nA -->
 <!--Ralph?  0bvEMJ9m96_er-z_dr1wcZjsucPYBoUZMjI-RQw -->
-<!-- 0bvEMJ9m96_f2aZjGvtIo0gbAxAloau3umkde5g -->
